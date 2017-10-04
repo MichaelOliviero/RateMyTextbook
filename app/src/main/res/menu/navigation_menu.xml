@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@+id/nav_home"
+        android:icon="@mipmap/ic_home_black_24dp"
+        android:title="Home" />
+
+    <item android:id="@+id/nav_search"
+        android:icon="@mipmap/ic_search_black_24dp"
+        android:title="Search" />
+
+    <item android:id="@+id/nav_addBook"
+        android:icon="@mipmap/ic_library_add_black_24dp"
+        android:title="Add textbook" />
+
+    <item android:id="@+id/nav_description"
+        android:icon="@mipmap/ic_description_black_24dp"
+        android:title="About Us" />
+</menu>
