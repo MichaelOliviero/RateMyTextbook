@@ -1,3 +1,3 @@
 dev_logs Week 1:
-Focused on acquiring familiarity with architecture types, Android studio, our app design, and working on Google's Applied CS with Android course to help learn android studio
+Focused on acquiring familiarity with architecture types, Android studio, our app design, and working on Google's Applied CS with Android course to help learn android studio.
 	Link: https://cswithandroid.withgoogle.com/register
