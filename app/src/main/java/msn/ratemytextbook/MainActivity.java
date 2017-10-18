@@ -29,15 +29,6 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        final Button button = (Button) findViewById(R.id.tempAddBook);
-        button.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                Intent myIntent = new Intent(MainActivity.this, AddBook.class);
-                MainActivity.this.startActivity(myIntent);
-            }
-        });
-
-
         mToolbar = (Toolbar) findViewById(R.id.nav_action);
         setSupportActionBar(mToolbar);
 
@@ -72,6 +63,14 @@ public class MainActivity extends AppCompatActivity {
                         fragmentTransaction.replace(R.id.main_container,new AboutUsFragment());
                         fragmentTransaction.commit();
                         getSupportActionBar().setTitle("About Us");
+                        item.setCheckable(true);
+                        mDrawerLayout.closeDrawers();
+                        break;
+                    case R.id.nav_addBook:
+                        fragmentTransaction = getSupportFragmentManager().beginTransaction();
+                        fragmentTransaction.replace(R.id.main_container,new AddBookFragment());
+                        fragmentTransaction.commit();
+                        getSupportActionBar().setTitle("Add Book");
                         item.setCheckable(true);
                         mDrawerLayout.closeDrawers();
                         break;
