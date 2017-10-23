@@ -58,19 +58,19 @@ public class MainActivity extends AppCompatActivity {
                         item.setCheckable(true);
                         mDrawerLayout.closeDrawers();
                         break;
+                    case R.id.nav_addBook:
+                        fragmentTransaction = getSupportFragmentManager().beginTransaction();
+                        fragmentTransaction.replace(R.id.main_container,new AddBookFragment());
+                        fragmentTransaction.commit();
+                        getSupportActionBar().setTitle("Add textbook");
+                        item.setCheckable(true);
+                        mDrawerLayout.closeDrawers();
+                        break;
                     case R.id.nav_description:
                         fragmentTransaction = getSupportFragmentManager().beginTransaction();
                         fragmentTransaction.replace(R.id.main_container,new AboutUsFragment());
                         fragmentTransaction.commit();
                         getSupportActionBar().setTitle("About Us");
-                        item.setCheckable(true);
-                        mDrawerLayout.closeDrawers();
-                        break;
-                    case R.id.nav_addBook:
-                        fragmentTransaction = getSupportFragmentManager().beginTransaction();
-                        fragmentTransaction.replace(R.id.main_container,new AddBookFragment());
-                        fragmentTransaction.commit();
-                        getSupportActionBar().setTitle("Add Book");
                         item.setCheckable(true);
                         mDrawerLayout.closeDrawers();
                         break;
