@@ -5,6 +5,9 @@
     android:layout_height="match_parent"
     tools:context="msn.ratemytextbook.AboutUsFragment">
 
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -68,6 +71,6 @@
             android:textSize="35dp"
             android:textStyle="bold" />
 
-    </LinearLayout>
+    </LinearLayout></ScrollView>
 
 </RelativeLayout>

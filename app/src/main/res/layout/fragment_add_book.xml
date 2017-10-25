@@ -5,7 +5,9 @@
     android:layout_height="match_parent"
     tools:context="msn.ratemytextbook.AddBookFragment">
 
-
+<ScrollView
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
     <android.support.constraint.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -20,8 +22,7 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/CCode"
-            tools:layout_editor_absoluteX="148dp" />
+            app:layout_constraintTop_toTopOf="@+id/CCode" />
 
         <EditText
             android:id="@+id/bookName"
@@ -32,10 +33,12 @@
             android:layout_marginTop="90dp"
             android:ems="10"
             android:inputType="textPersonName"
-            android:text="Book Name"
+            android:hint="Title"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginStart="84dp"
+            android:layout_marginEnd="84dp" />
 
         <EditText
             android:id="@+id/Author"
@@ -46,24 +49,40 @@
             android:layout_marginTop="75dp"
             android:ems="10"
             android:inputType="textPersonName"
-            android:text="Author"
+            android:hint="Author"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/bookName" />
+            app:layout_constraintTop_toTopOf="@+id/bookName"
+            android:layout_marginStart="84dp"
+            android:layout_marginEnd="84dp" />
 
-        <EditText
+        <TextView
             android:id="@+id/Course"
-            android:layout_width="wrap_content"
+            android:layout_width="205dp"
             android:layout_height="wrap_content"
+            android:layout_marginTop="98dp"
+            android:ems="10"
+            android:text="Course: "
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="@+id/Course_spn"
+            app:layout_constraintTop_toTopOf="@+id/Author"
+            android:layout_marginStart="84dp"
+            android:layout_marginEnd="84dp" />
+        <Spinner
+            android:id="@+id/Course_spn"
+            android:layout_width="160dp"
+            android:layout_height="99dp"
             android:layout_marginLeft="84dp"
             android:layout_marginRight="84dp"
-            android:layout_marginTop="75dp"
+            android:layout_marginTop="62dp"
             android:ems="10"
-            android:inputType="textPersonName"
-            android:text="Course"
-            app:layout_constraintLeft_toLeftOf="parent"
+            android:entries="@array/courseList"
+            app:layout_constraintLeft_toLeftOf="@+id/Course"
             app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/Author" />
+            app:layout_constraintTop_toTopOf="@+id/Author"
+            android:layout_marginStart="84dp"
+            android:layout_marginEnd="84dp"
+            app:layout_constraintHorizontal_bias="0.0"></Spinner>
 
         <EditText
             android:id="@+id/CCode"
@@ -71,17 +90,19 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="84dp"
             android:layout_marginRight="84dp"
-            android:layout_marginTop="75dp"
+            android:layout_marginTop="65dp"
             android:ems="10"
             android:inputType="textPersonName"
-            android:text="Course Code"
+            android:hint="Course Code"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/Course" />
+            app:layout_constraintTop_toTopOf="@+id/Course"
+            android:layout_marginStart="84dp"
+            android:layout_marginEnd="84dp" />
 
         <TextView
             android:id="@+id/textView6"
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
             android:layout_height="50dp"
             android:text="New textbook"
             android:textColor="@color/common_google_signin_btn_text_dark_focused"
@@ -90,9 +111,7 @@
             android:gravity="center"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
-            tools:layout_editor_absoluteX="61dp"
-            tools:layout_editor_absoluteY="16dp"
-            />
+            tools:layout_editor_absoluteY="41dp" />
 
-    </android.support.constraint.ConstraintLayout>
+    </android.support.constraint.ConstraintLayout></ScrollView>
 </RelativeLayout>

@@ -1,10 +1,12 @@
 package msn.ratemytextbook;
 
+import java.io.Serializable;
+
 /**
  * Created by Mico on 2017-10-13.
  */
 
-public class Book {
+public class Book extends Object implements Serializable {
 
     protected String Author;
     protected String Course;
@@ -28,43 +30,50 @@ public class Book {
         Rating = r;
     }
 
+    public String getStringBook() {
+        String bString;
+        String cc = String.valueOf(this.getCCode());
+        bString = "Book: " + this.getName() + "\nBy: " + this.getAuthor() + "\n" +
+                    this.getCourse() + cc + " - " + this.getRating() + " Stars";
+        return bString;
+    }
+
     public String getAuthor() {
-        return Author;
+        return this.Author;
     }
 
     public String getCourse() {
-        return Course;
+        return this.Course;
     }
 
     public int getCCode() {
-        return CCode;
+        return this.CCode;
     }
 
     public String getName() {
-        return Name;
+        return this.Name;
     }
 
     public int getRating() {
-        return Rating;
+        return this.Rating;
     }
 
     public void setAuthor(String a) {
-        Author = a;
+        this.Author = a;
     }
 
-    public void setCourse(String c) {
-        Course = c;
-    }
+    public void setCourse(String c) { this.Course = c; }
 
     public void setCCode(int cc) {
-        CCode = cc;
+        this.CCode = cc;
     }
 
     public void setName(String n) {
-        Name = n;
+        this.Name = n;
     }
 
     public void setRating(int r) {
-        Rating = r;
+        this.Rating = r;
     }
+
 }
