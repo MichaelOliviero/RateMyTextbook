@@ -2,31 +2,27 @@ package msn.ratemytextbook;
 
 import java.io.Serializable;
 
-/**
- * Created by Mico on 2017-10-13.
- */
-
 public class Book extends Object implements Serializable {
 
+    protected String Name;
     protected String Author;
     protected String Course;
     protected int CCode;
-    protected String Name;
     protected int Rating;
 
     public Book() {
+        Name = "";
         Author = "";
         Course = "";
         CCode = 0;
-        Name = "";
         Rating = 5;
     }
 
-    public Book(String a, String c, int cc, String n, int r) {
+    public Book(String n, String a, String c, int cc, int r) {
+        Name = n;
         Author = a;
         Course = c;
         CCode = cc;
-        Name = n;
         Rating = r;
     }
 

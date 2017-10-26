@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    >
+
+    <ImageView
+        android:id="@+id/textbook_img"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        app:srcCompat="@mipmap/ic_library_books_black_48dp"
+        android:layout_margin="12dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:id="@+id/book_name"
+        android:layout_width="match_parent"
+        android:layout_height="24dp"
+        android:textSize="12sp"
+        android:gravity="start"
+        android:layout_margin="12dp"
+        android:layout_alignParentTop="true"
+        android:layout_toRightOf="@+id/textbook_img"
+        android:layout_toEndOf="@+id/textbook_img"
+        />
+
+    <TextView
+        android:id="@+id/book_author"
+        android:layout_width="match_parent"
+        android:layout_height="24dp"
+        android:textSize="12sp"
+        android:gravity="end"
+        android:layout_margin="12dp"
+        android:layout_marginRight="24dp"
+        android:layout_marginEnd="24dp"
+        android:layout_alignParentTop="true"
+        android:layout_toRightOf="@+id/textbook_img"
+        android:layout_toEndOf="@+id/textbook_img"
+        />
+
+    <TextView
+        android:id="@+id/book_course"
+        android:layout_width="wrap_content"
+        android:layout_height="24dp"
+        android:textSize="12sp"
+        android:layout_margin="12dp"
+        android:layout_below="@+id/book_name"
+        android:layout_toRightOf="@+id/textbook_img"
+        android:layout_toEndOf="@+id/textbook_img"
+        />
+
+    <TextView
+        android:id="@+id/book_course_code"
+        android:layout_width="wrap_content"
+        android:layout_height="24dp"
+        android:textSize="12sp"
+        android:layout_margin="12dp"
+        android:layout_below="@+id/book_name"
+        android:layout_toRightOf="@+id/book_course"
+        android:layout_toEndOf="@+id/book_course"
+        />
+
+    <RatingBar
+        android:id="@+id/book_rating"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        style="?android:attr/ratingBarStyleSmall"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_margin="12dp"
+        android:layout_marginRight="24dp"
+        android:layout_marginEnd="24dp"
+        android:layout_below="@+id/book_author"
+        android:numStars="5"
+        android:rating="5"
+        android:stepSize="1" />
+</RelativeLayout>

@@ -1,6 +1,5 @@
 package msn.ratemytextbook;
 
-
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.text.TextUtils;
@@ -10,13 +9,16 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 public class AddBookFragment extends Fragment{
+
+    DatabaseHandler db = (DatabaseHandler) MainActivity.myBundle.get("database");
+    public Button button;
+
     public AddBookFragment() {
         // Required empty public constructor
     }
-
-    public Button button;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -54,36 +56,12 @@ public class AddBookFragment extends Fragment{
                 inputBook.setCCode(Integer.parseInt(inputCCode.getText().toString()));
                 // Rating is defaulted to 5 stars
 
-                System.out.println("BOOK MADE");
-                System.out.println(inputBook.getStringBook());
+                db.addBook(inputBook);
+                inputName.setText(null);
+                inputAuthor.setText(null);
+                inputCCode.setText(null);
 
-                if (!(inputBook.getName().equals(""))) {
-                    MainActivity.myBundle.putSerializable("newbook", inputBook);
-                }
-
-                CourseList tmplist = (CourseList) MainActivity.myBundle.get("mainList");
-                boolean trigger = (tmplist.getCourseList().isEmpty());
-                if (trigger){
-                    // if there is no course
-                    // .: add a new course
-                    Course c = new Course();
-                    c.setCourse(inputBook.getCourse());
-                    c.addBook(inputBook);
-                    c.printInfo();
-                    tmplist.addCourse(c);
-                }else{
-                    // add book to existing course
-                    tmplist.getCourse(inputBook.getCourse()).addBook(inputBook);
-                    tmplist.getCourse(inputBook.getCourse()).printInfo();
-                }
-                System.out.println(tmplist);
-
-                //create book = done
-                //check if course exists in courselist
-                //yes - add to existing course
-                //no - create new course and add course to courselist
-
-
+                Toast.makeText(getView().getContext(), "Book added!", Toast.LENGTH_SHORT).show();
             }
         });
 

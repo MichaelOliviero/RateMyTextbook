@@ -1,10 +1,6 @@
-package msn.ratemytextbook;
+/*package msn.ratemytextbook;
 
 import java.util.ArrayList;
-
-/**
- * Created by Stein on 2017-10-16.
- */
 
 public class Course implements Comparable<Course>, java.io.Serializable {
 
@@ -51,4 +47,4 @@ public class Course implements Comparable<Course>, java.io.Serializable {
         }
     }
 
-}
+}*/

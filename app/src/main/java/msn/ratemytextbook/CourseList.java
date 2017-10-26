@@ -1,14 +1,9 @@
-package msn.ratemytextbook;
+/*package msn.ratemytextbook;
 
-import java.io.Serializable;
 import java.util.Map;
 import java.util.TreeMap;
 
-/**
- * Created by Mico on 2017-10-24.
- */
-
-public class CourseList implements Serializable{
+public class CourseList {
 
     protected TreeMap<Course, String> courseList;
 
@@ -35,4 +30,4 @@ public class CourseList implements Serializable{
         }
         return key;
     }
-}
+}*/

@@ -1,117 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="msn.ratemytextbook.AddBookFragment">
+    >
 
-<ScrollView
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
-    <android.support.constraint.ConstraintLayout
+    <TextView
+        android:id="@+id/textView6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:layout_marginBottom="24dp"
+        android:text="New textbook"
+        android:textColor="@color/common_google_signin_btn_text_dark_focused"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        android:gravity="center"
+        android:layout_marginLeft="50dp"
+        android:layout_marginRight="50dp"
+        android:layout_centerHorizontal="true"
+        />
+
+    <EditText
+        android:id="@+id/bookName"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:layout_marginBottom="24dp"
+        android:hint="Title"
+        android:gravity="center"
+        android:layout_below="@+id/textView6"
+        android:layout_marginLeft="50dp"
+        android:layout_marginRight="50dp"
+        android:layout_centerHorizontal="true"
+        />
 
-        <Button
-            android:id="@+id/submit_btn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="20dp"
-            android:layout_marginTop="150dp"
-            android:text="Submit"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/CCode" />
+    <EditText
+        android:id="@+id/Author"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:layout_marginBottom="24dp"
+        android:hint="Author"
+        android:gravity="center"
+        android:layout_below="@+id/bookName"
+        android:layout_marginLeft="50dp"
+        android:layout_marginRight="50dp"
+        android:layout_centerHorizontal="true"
+        />
 
-        <EditText
-            android:id="@+id/bookName"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="84dp"
-            android:layout_marginRight="84dp"
-            android:layout_marginTop="90dp"
-            android:ems="10"
-            android:inputType="textPersonName"
-            android:hint="Title"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            android:layout_marginStart="84dp"
-            android:layout_marginEnd="84dp" />
+    <LinearLayout
+        android:id="@+id/grouped"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:layout_centerHorizontal="true"
+        android:orientation="horizontal">
 
-        <EditText
-            android:id="@+id/Author"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="84dp"
-            android:layout_marginRight="84dp"
-            android:layout_marginTop="75dp"
-            android:ems="10"
-            android:inputType="textPersonName"
-            android:hint="Author"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/bookName"
-            android:layout_marginStart="84dp"
-            android:layout_marginEnd="84dp" />
+    <TextView
+        android:id="@+id/Course"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:layout_marginBottom="24dp"
+        android:text="Course: "
+        android:textSize="18sp"
+        android:layout_below="@+id/Author"
+        />
 
-        <TextView
-            android:id="@+id/Course"
-            android:layout_width="205dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="98dp"
-            android:ems="10"
-            android:text="Course: "
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="@+id/Course_spn"
-            app:layout_constraintTop_toTopOf="@+id/Author"
-            android:layout_marginStart="84dp"
-            android:layout_marginEnd="84dp" />
-        <Spinner
-            android:id="@+id/Course_spn"
-            android:layout_width="160dp"
-            android:layout_height="99dp"
-            android:layout_marginLeft="84dp"
-            android:layout_marginRight="84dp"
-            android:layout_marginTop="62dp"
-            android:ems="10"
-            android:entries="@array/courseList"
-            app:layout_constraintLeft_toLeftOf="@+id/Course"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/Author"
-            android:layout_marginStart="84dp"
-            android:layout_marginEnd="84dp"
-            app:layout_constraintHorizontal_bias="0.0"></Spinner>
+    <Spinner
+        android:id="@+id/Course_spn"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:layout_marginBottom="24dp"
+        android:entries="@array/courseList"
+        android:layout_below="@+id/Author"
+        android:layout_toRightOf="@+id/Course"
+        android:layout_toEndOf="@+id/Course"
+        />
+    </LinearLayout>
 
-        <EditText
-            android:id="@+id/CCode"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="84dp"
-            android:layout_marginRight="84dp"
-            android:layout_marginTop="65dp"
-            android:ems="10"
-            android:inputType="textPersonName"
-            android:hint="Course Code"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/Course"
-            android:layout_marginStart="84dp"
-            android:layout_marginEnd="84dp" />
+    <EditText
+        android:id="@+id/CCode"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:layout_marginBottom="24dp"
+        android:hint="Course Code"
+        android:gravity="center"
+        android:layout_below="@+id/grouped"
+        android:layout_marginLeft="50dp"
+        android:layout_marginRight="50dp"
+        android:layout_centerHorizontal="true"
+        />
 
-        <TextView
-            android:id="@+id/textView6"
-            android:layout_width="0dp"
-            android:layout_height="50dp"
-            android:text="New textbook"
-            android:textColor="@color/common_google_signin_btn_text_dark_focused"
-            android:textSize="22sp"
-            android:textStyle="bold"
-            android:gravity="center"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            tools:layout_editor_absoluteY="41dp" />
-
-    </android.support.constraint.ConstraintLayout></ScrollView>
+    <Button
+        android:id="@+id/submit_btn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:layout_marginBottom="24dp"
+        android:text="Submit"
+        android:layout_below="@+id/CCode"
+        android:layout_marginLeft="100dp"
+        android:layout_marginRight="100dp"
+        android:layout_centerHorizontal="true"
+        />
 </RelativeLayout>
