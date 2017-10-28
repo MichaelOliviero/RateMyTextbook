@@ -75,7 +75,6 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
         android:layout_marginBottom="24dp"
-        android:entries="@array/courseList"
         android:layout_below="@+id/Author"
         android:layout_toRightOf="@+id/Course"
         android:layout_toEndOf="@+id/Course"

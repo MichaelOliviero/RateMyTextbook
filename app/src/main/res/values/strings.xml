@@ -2,10 +2,4 @@
     <string name="app_name">RateMyTextbook</string>
     <string name="open">Open</string>
     <string name="close">Close</string>
-
-    <string-array name="courseList">
-        <item>COMP</item>
-        <item>FREN</item>
-        <item>PHIL</item>
-    </string-array>
 </resources>

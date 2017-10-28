@@ -66,6 +66,14 @@ public class MainActivity extends AppCompatActivity {
                         item.setCheckable(true);
                         mDrawerLayout.closeDrawers();
                         break;
+                    case R.id.nav_addCourse:
+                        fragmentTransaction = getSupportFragmentManager().beginTransaction();
+                        fragmentTransaction.replace(R.id.main_container, new AddCourseFragment());
+                        fragmentTransaction.commit();
+                        getSupportActionBar().setTitle("Add course");
+                        item.setCheckable(true);
+                        mDrawerLayout.closeDrawers();
+                        break;
                     case R.id.nav_description:
                         fragmentTransaction = getSupportFragmentManager().beginTransaction();
                         fragmentTransaction.replace(R.id.main_container, new AboutUsFragment());

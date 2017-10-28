@@ -16,10 +16,14 @@ public class DatabaseHandler extends SQLiteOpenHelper implements Serializable {
     private static final int DATABASE_VERSION = 1;
 
     // Database Name
-    private static final String DATABASE_NAME = "booksManager";
+    private static final String DATABASE_NAME = "database";
 
     // books table name
     private static final String TABLE_BOOKS = "books";
+
+    // courses table name
+    private static final String TABLE_COURSES = "courses";
+
 
     // Books Table Columns names
     private static final String KEY_TITLE = "title";
@@ -35,6 +39,7 @@ public class DatabaseHandler extends SQLiteOpenHelper implements Serializable {
     // Creating Tables
     @Override
     public void onCreate(SQLiteDatabase db) {
+        // Books table
         String CREATE_BOOKS_TABLE = "CREATE TABLE " + TABLE_BOOKS + "("
                 + KEY_TITLE + " TEXT PRIMARY KEY,"
                 + KEY_AUTHOR + " TEXT,"
@@ -42,6 +47,11 @@ public class DatabaseHandler extends SQLiteOpenHelper implements Serializable {
                 + KEY_COURSECODE + " INTEGER,"
                 + KEY_RATING + " INTEGER" + ")";
         db.execSQL(CREATE_BOOKS_TABLE);
+
+        // Courses table
+        String CREATE_COURSES_TABLE = "CREATE TABLE " + TABLE_COURSES + "("
+                + KEY_COURSE + " TEXT PRIMARY KEY" + ")";
+        db.execSQL(CREATE_COURSES_TABLE);
     }
 
     // Upgrading database
@@ -49,6 +59,7 @@ public class DatabaseHandler extends SQLiteOpenHelper implements Serializable {
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
         // Drop older table if existed
         db.execSQL("DROP TABLE IF EXISTS " + TABLE_BOOKS);
+        db.execSQL("DROP TABLE IF EXISTS " + TABLE_COURSES);
 
         // Create tables again
         onCreate(db);
@@ -71,6 +82,19 @@ public class DatabaseHandler extends SQLiteOpenHelper implements Serializable {
         db.close(); // Closing database connection
     }
 
+    // addCourse()
+    // Adding new course
+    public void addCourse(String course) {
+        SQLiteDatabase db = this.getWritableDatabase();
+
+        ContentValues values = new ContentValues();
+        values.put(KEY_COURSE, course); // Book Title
+
+        // Inserting Row
+        db.insert(TABLE_COURSES, null, values);
+        db.close(); // Closing database connection
+    }
+
     // getBook()
     // Getting single book by title
     public Book getBook(String title) {
@@ -88,6 +112,22 @@ public class DatabaseHandler extends SQLiteOpenHelper implements Serializable {
 
         // return book
         return book;
+    }
+
+    // getCourse()
+    // Getting single course by title
+    public String getCourse(String title) {
+        SQLiteDatabase db = this.getReadableDatabase();
+
+        Cursor cursor = db.query(TABLE_COURSES, new String[] { KEY_COURSE }, KEY_COURSE + "=?",
+                new String[] { String.valueOf(title) }, null, null, null, null);
+        if (cursor != null)
+            cursor.moveToFirst();
+
+        String course = cursor.getString(0);
+
+        // return course
+        return course;
     }
 
     // getAllBooks()
@@ -118,10 +158,45 @@ public class DatabaseHandler extends SQLiteOpenHelper implements Serializable {
         return bookList;
     }
 
+    // getAllCourses()
+    // Getting All Courses
+    public List<String> getAllCourses() {
+        List<String> courseList = new ArrayList<String>();
+        // Select All Query
+        String selectQuery = "SELECT  * FROM " + TABLE_COURSES;
+
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor cursor = db.rawQuery(selectQuery, null);
+
+        // looping through all rows and adding to list
+        if (cursor.moveToFirst()) {
+            do {
+                String course = cursor.getString(0);
+                // Adding course to list
+                courseList.add(course);
+            } while (cursor.moveToNext());
+        }
+
+        // return course list
+        return courseList;
+    }
+
     // getBookCount()
     // Getting book Count
     public int getBookCount() {
         String countQuery = "SELECT  * FROM " + TABLE_BOOKS;
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.rawQuery(countQuery, null);
+        cursor.close();
+
+        // return count
+        return cursor.getCount();
+    }
+
+    // getCourseCount()
+    // Getting course Count
+    public int getCourseCount() {
+        String countQuery = "SELECT  * FROM " + TABLE_COURSES;
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor cursor = db.rawQuery(countQuery, null);
         cursor.close();
@@ -153,6 +228,15 @@ public class DatabaseHandler extends SQLiteOpenHelper implements Serializable {
         SQLiteDatabase db = this.getWritableDatabase();
         db.delete(TABLE_BOOKS, KEY_TITLE + " = ?",
                 new String[] { String.valueOf(book.getName()) });
+        db.close();
+    }
+
+    // deleteCourse()
+    // Deleting single course
+    public void deleteCourse(String course) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        db.delete(TABLE_COURSES, KEY_COURSE + " = ?",
+                new String[] { course });
         db.close();
     }
 }

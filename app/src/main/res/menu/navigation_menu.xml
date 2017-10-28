@@ -12,6 +12,10 @@
         android:icon="@mipmap/ic_library_add_black_24dp"
         android:title="Add textbook" />
 
+    <item android:id="@+id/nav_addCourse"
+        android:icon="@mipmap/ic_add_circle_black_24dp"
+        android:title="Add course" />
+
     <item android:id="@+id/nav_description"
         android:icon="@mipmap/ic_description_black_24dp"
         android:title="About Us" />
