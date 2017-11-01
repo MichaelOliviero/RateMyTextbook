@@ -25,9 +25,8 @@ public class DBListAdapter extends ArrayAdapter {
     }
 
     @Override
-    public int getCount() {
-        return mlist.size();
-    }
+    public int getCount() {return mlist.size(); }
+
 
     @Override
     public Object getItem(int position) {

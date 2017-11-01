@@ -48,7 +48,7 @@ public class AddBookFragment extends Fragment{
 
                 //grab text from the text box
                 EditText inputName = (EditText) getView().findViewById(R.id.bookName);
-                EditText inputAuthor = (EditText) getView().findViewById(R.id.Author);
+                EditText inputAuthor = (EditText) getView().findViewById(R.id.Name );
                 Spinner inputCourse = (Spinner) getView().findViewById(R.id.Course_spn);
                 EditText inputCCode = (EditText) getView().findViewById(R.id.CCode);
 

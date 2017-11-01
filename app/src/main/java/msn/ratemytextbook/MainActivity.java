@@ -1,5 +1,6 @@
 package msn.ratemytextbook;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
@@ -22,6 +23,8 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
+
         super.onCreate(savedInstanceState);
 
         final DatabaseHandler db = new DatabaseHandler(this);
@@ -95,5 +98,12 @@ public class MainActivity extends AppCompatActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    public void sendData(Book b) {
+        //System.out.println("ASDASDASD" + "\n \n");
+        //Intent sendString = new Intent(MainActivity.this, BookShower.class);
+        //sendString.putExtra("a", "hello");
+
     }
 }
