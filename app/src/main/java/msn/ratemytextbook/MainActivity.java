@@ -38,9 +38,9 @@ public class MainActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         fragmentTransaction = getSupportFragmentManager().beginTransaction();
-        fragmentTransaction.add(R.id.main_container,new HomeFragment());
+        fragmentTransaction.add(R.id.main_container,new LogInFragment());
         fragmentTransaction.commit();
-        getSupportActionBar().setTitle("Home");
+        getSupportActionBar().setTitle("Log In");
 
         navigationView = (NavigationView) findViewById(R.id.navigation_menu);
         navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
@@ -76,14 +76,6 @@ public class MainActivity extends AppCompatActivity {
                         fragmentTransaction.replace(R.id.main_container, new AboutUsFragment());
                         fragmentTransaction.commit();
                         getSupportActionBar().setTitle("About Us");
-                        item.setCheckable(true);
-                        mDrawerLayout.closeDrawers();
-                        break;
-                    case R.id.nav_account:
-                        fragmentTransaction = getSupportFragmentManager().beginTransaction();
-                        fragmentTransaction.replace(R.id.main_container, new AccountFragment());
-                        fragmentTransaction.commit();
-                        getSupportActionBar().setTitle("Account");
                         item.setCheckable(true);
                         mDrawerLayout.closeDrawers();
                         break;

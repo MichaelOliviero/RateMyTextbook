@@ -2,15 +2,15 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="msn.ratemytextbook.AccountFragment">
+    tools:context="msn.ratemytextbook.LogInFragment">
 
     <TextView
-        android:id="@+id/textView12"
+        android:id="@+id/textView14"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
         android:layout_marginBottom="24dp"
-        android:text="Account"
+        android:text="Register New Account"
         android:textSize="22sp"
         android:textStyle="bold"
         android:gravity="center"
@@ -20,28 +20,57 @@
         />
 
     <EditText
-        android:id="@+id/accName"
+        android:id="@+id/newaccName"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
         android:layout_marginBottom="24dp"
-        android:hint="Username"
+        android:hint="Email Address"
         android:gravity="center"
-        android:layout_below="@+id/textView12"
+        android:inputType="textWebEmailAddress"
+        android:layout_below="@+id/textView14"
         android:layout_marginLeft="50dp"
         android:layout_marginRight="50dp"
         android:layout_centerHorizontal="true"
         />
 
     <EditText
-        android:id="@+id/accPass"
+        android:id="@+id/newaccPass"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
         android:layout_marginBottom="24dp"
         android:hint="Password"
         android:gravity="center"
-        android:layout_below="@+id/accName"
+        android:layout_below="@+id/newaccName"
+        android:layout_marginLeft="50dp"
+        android:layout_marginRight="50dp"
+        android:layout_centerHorizontal="true"
+        />
+
+
+    <Button
+        android:id="@+id/submit_btn5"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:layout_marginBottom="24dp"
+        android:text="Register"
+        android:layout_below="@+id/newaccPass"
+        android:layout_marginLeft="100dp"
+        android:layout_marginRight="100dp"
+        android:layout_centerHorizontal="true"
+        />
+
+    <TextView
+        android:id="@+id/submit_btn6"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:layout_marginBottom="24dp"
+        android:gravity="center"
+        android:text="Already have an account?\nClick here to log in!"
+        android:layout_below="@+id/submit_btn5"
         android:layout_marginLeft="50dp"
         android:layout_marginRight="50dp"
         android:layout_centerHorizontal="true"
