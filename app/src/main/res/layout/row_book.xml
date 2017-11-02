@@ -16,7 +16,7 @@
         android:layout_alignParentStart="true" />
 
     <TextView
-        android:id="@+id/book_name"
+        android:id="@+id/book_title"
         android:layout_width="match_parent"
         android:layout_height="24dp"
         android:textSize="12sp"
@@ -46,8 +46,10 @@
         android:layout_width="wrap_content"
         android:layout_height="24dp"
         android:textSize="12sp"
-        android:layout_margin="12dp"
-        android:layout_below="@+id/book_name"
+        android:layout_marginTop="12dp"
+        android:layout_marginLeft="12dp"
+        android:layout_marginStart="12dp"
+        android:layout_below="@+id/book_title"
         android:layout_toRightOf="@+id/textbook_img"
         android:layout_toEndOf="@+id/textbook_img"
         />
@@ -57,8 +59,10 @@
         android:layout_width="wrap_content"
         android:layout_height="24dp"
         android:textSize="12sp"
-        android:layout_margin="12dp"
-        android:layout_below="@+id/book_name"
+        android:layout_marginTop="12dp"
+        android:layout_marginRight="12dp"
+        android:layout_marginEnd="12dp"
+        android:layout_below="@+id/book_title"
         android:layout_toRightOf="@+id/book_course"
         android:layout_toEndOf="@+id/book_course"
         />

@@ -12,11 +12,21 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
+import java.util.ArrayList;
 import java.util.List;
 
 public class AddBookFragment extends Fragment{
 
-    DatabaseHandler db = (DatabaseHandler) MainActivity.myBundle.get("database");
+    FirebaseDatabase database = FirebaseDatabase.getInstance();
+    DatabaseReference myRef = database.getReference("bookList");
+    DatabaseReference spinnerRef = database.getReference("courseList");
+
     public Button button;
 
     public AddBookFragment() {
@@ -27,17 +37,31 @@ public class AddBookFragment extends Fragment{
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         final View view = inflater.inflate(R.layout.fragment_add_book, container, false);
 
-        Spinner spinner = (Spinner) view.findViewById(R.id.Course_spn);
+        spinnerRef.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
 
-        List<String> courses = db.getAllCourses();
+                final List<String> courses = new ArrayList<String>();
 
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(getActivity(),
+                for (DataSnapshot areaSnapshot: dataSnapshot.getChildren()) {
+                    String areaName = areaSnapshot.child("courseName").getValue(String.class);
+                    courses.add(areaName);
+                }
+
+                Spinner spinner = (Spinner) view.findViewById(R.id.Course_spn);
+                ArrayAdapter<String> adapter = new ArrayAdapter<String>(getActivity(),
                         R.layout.support_simple_spinner_dropdown_item,
                         courses);
+                adapter.setDropDownViewResource(R.layout.support_simple_spinner_dropdown_item);
+                spinner.setAdapter(adapter);
+            }
 
-        adapter.setDropDownViewResource(R.layout.support_simple_spinner_dropdown_item);
-
-        spinner.setAdapter(adapter);
+            @Override
+            public void onCancelled(DatabaseError error) {
+                // Failed to read value
+                System.out.println("Failed to read value: " + error.toException());
+            }
+        });
 
         button = (Button) view.findViewById(R.id.submit_btn);
         button.setOnClickListener(new View.OnClickListener() {
@@ -47,10 +71,10 @@ public class AddBookFragment extends Fragment{
                 int CCode;
 
                 //grab text from the text box
-                EditText inputName = (EditText) getView().findViewById(R.id.bookName);
-                EditText inputAuthor = (EditText) getView().findViewById(R.id.Name );
+                EditText inputName = (EditText) getView().findViewById(R.id.bookTitle_id);
+                EditText inputAuthor = (EditText) getView().findViewById(R.id.bookAuthor_id);
                 Spinner inputCourse = (Spinner) getView().findViewById(R.id.Course_spn);
-                EditText inputCCode = (EditText) getView().findViewById(R.id.CCode);
+                EditText inputCCode = (EditText) getView().findViewById(R.id.bookCCode_id);
 
                 if (TextUtils.isEmpty(inputName.getText().toString())) {
                     inputName.setError("Please input a title");
@@ -81,13 +105,27 @@ public class AddBookFragment extends Fragment{
                 }
 
                 //set the books variables
-                inputBook.setName(inputName.getText().toString());
-                inputBook.setAuthor(inputAuthor.getText().toString());
-                inputBook.setCourse(inputCourse.getSelectedItem().toString());
-                inputBook.setCCode(CCode);
+                inputBook.setBookTitle(inputName.getText().toString());
+                inputBook.setBookAuthor(inputAuthor.getText().toString());
+                inputBook.setBookCourse(inputCourse.getSelectedItem().toString());
+                inputBook.setBookCCode(CCode);
                 // Rating is defaulted to 5 stars
 
-                db.addBook(inputBook);
+
+                // Read from the database
+                myRef.addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(DataSnapshot dataSnapshot) {
+                        BookList value = dataSnapshot.getValue(BookList.class);
+                    }
+
+                    @Override
+                    public void onCancelled(DatabaseError error) {
+                        // Failed to read value
+                        System.out.println("Failed to read value: " + error.toException());
+                    }
+                });
+                myRef.push().setValue(inputBook);
                 inputName.setText(null);
                 inputAuthor.setText(null);
                 inputCCode.setText(null);

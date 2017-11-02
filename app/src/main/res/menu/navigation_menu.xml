@@ -19,4 +19,8 @@
     <item android:id="@+id/nav_description"
         android:icon="@mipmap/ic_description_black_24dp"
         android:title="About Us" />
+
+    <item android:id="@+id/nav_account"
+        android:icon="@mipmap/ic_description_black_24dp"
+        android:title="Account" />
 </menu>

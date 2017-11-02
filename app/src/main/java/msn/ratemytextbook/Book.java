@@ -1,75 +1,38 @@
 package msn.ratemytextbook;
 
-import java.io.Serializable;
+public class Book {
 
-public class Book extends Object implements Serializable {
+    public String bookTitle;
+    public String bookAuthor;
+    public String bookCourse;
+    public int bookCCode;
+    public int bookRating;
 
-    protected String Name;
-    protected String Author;
-    protected String Course;
-    protected int CCode;
-    protected int Rating;
-
-    public Book() {
-        Name = "";
-        Author = "";
-        Course = "";
-        CCode = 0;
-        Rating = 5;
+    protected Book() {
+        bookTitle = "";
+        bookAuthor = "";
+        bookCourse = "";
+        bookCCode = 0;
+        bookRating = 5;
     }
 
-    public Book(String n, String a, String c, int cc, int r) {
-        Name = n;
-        Author = a;
-        Course = c;
-        CCode = cc;
-        Rating = r;
+    protected Book(String t, String a, String c, int cc, int r) {
+        bookTitle = t;
+        bookAuthor = a;
+        bookCourse = c;
+        bookCCode = cc;
+        bookRating = r;
     }
 
-    public String getStringBook() {
-        String bString;
-        String cc = String.valueOf(this.getCCode());
-        bString = "Book: " + this.getName() + "\nBy: " + this.getAuthor() + "\n" +
-                    this.getCourse() + cc + " - " + this.getRating() + " Stars";
-        return bString;
-    }
+    public String getBookTitle() { return bookTitle; }
+    public String getBookAuthor() { return bookAuthor; }
+    public String getBookCourse() { return bookCourse; }
+    public int getBookCCode() { return bookCCode; }
+    public int getBookRating() { return bookRating; }
 
-    public String getAuthor() {
-        return this.Author;
-    }
-
-    public String getCourse() {
-        return this.Course;
-    }
-
-    public int getCCode() {
-        return this.CCode;
-    }
-
-    public String getName() {
-        return this.Name;
-    }
-
-    public int getRating() {
-        return this.Rating;
-    }
-
-    public void setAuthor(String a) {
-        this.Author = a;
-    }
-
-    public void setCourse(String c) { this.Course = c; }
-
-    public void setCCode(int cc) {
-        this.CCode = cc;
-    }
-
-    public void setName(String n) {
-        this.Name = n;
-    }
-
-    public void setRating(int r) {
-        this.Rating = r;
-    }
-
+    public void setBookTitle(String bookTitle) { this.bookTitle = bookTitle; }
+    public void setBookAuthor(String bookAuthor) { this.bookAuthor = bookAuthor; }
+    public void setBookCourse(String bookCourse) { this.bookCourse = bookCourse; }
+    public void setBookCCode(int bookCCode) { this.bookCCode = bookCCode; }
+    public void setBookRating(int bookRating) { this.bookRating = bookRating; }
 }

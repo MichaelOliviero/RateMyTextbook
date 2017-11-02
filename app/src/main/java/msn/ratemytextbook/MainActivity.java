@@ -1,6 +1,5 @@
 package msn.ratemytextbook;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
@@ -15,7 +14,6 @@ public class MainActivity extends AppCompatActivity {
 
     private DrawerLayout mDrawerLayout;
     private ActionBarDrawerToggle mToggle;
-    public static Bundle myBundle = new Bundle();
     private Toolbar mToolbar;
 
     FragmentTransaction fragmentTransaction;
@@ -24,11 +22,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
-
         super.onCreate(savedInstanceState);
-
-        final DatabaseHandler db = new DatabaseHandler(this);
-        myBundle.putSerializable("database", db);
 
         setContentView(R.layout.activity_main);
 
@@ -82,6 +76,14 @@ public class MainActivity extends AppCompatActivity {
                         fragmentTransaction.replace(R.id.main_container, new AboutUsFragment());
                         fragmentTransaction.commit();
                         getSupportActionBar().setTitle("About Us");
+                        item.setCheckable(true);
+                        mDrawerLayout.closeDrawers();
+                        break;
+                    case R.id.nav_account:
+                        fragmentTransaction = getSupportFragmentManager().beginTransaction();
+                        fragmentTransaction.replace(R.id.main_container, new AccountFragment());
+                        fragmentTransaction.commit();
+                        getSupportActionBar().setTitle("Account");
                         item.setCheckable(true);
                         mDrawerLayout.closeDrawers();
                         break;

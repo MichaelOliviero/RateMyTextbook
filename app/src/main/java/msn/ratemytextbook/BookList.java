@@ -1,20 +1,20 @@
 package msn.ratemytextbook;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class BookList {
+public class BookList implements Serializable {
 
-    private ArrayList<Book> bookArrayList;
+    public ArrayList<Book> bookArrayList;
 
-    private BookList() {
-        bookArrayList = new ArrayList<Book>();
+    protected BookList() {
+        this.bookArrayList = new ArrayList<Book>();
     }
+
+    public void addBook(Book b) { this.bookArrayList.add(b); }
 
     public ArrayList<Book> getBookArrayList() {
         return bookArrayList;
     }
-
-    public void setBookArrayList(ArrayList<Book> bookArrayList) {
-        this.bookArrayList = bookArrayList;
-    }
+    public Book getBook(int i) { return bookArrayList.get(i); }
 }

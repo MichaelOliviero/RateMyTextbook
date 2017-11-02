@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -13,7 +12,6 @@
         android:layout_marginTop="24dp"
         android:layout_marginBottom="24dp"
         android:text="New textbook"
-        android:textColor="@color/common_google_signin_btn_text_dark_focused"
         android:textSize="22sp"
         android:textStyle="bold"
         android:gravity="center"
@@ -23,7 +21,7 @@
         />
 
     <EditText
-        android:id="@+id/bookName"
+        android:id="@+id/bookTitle_id"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
@@ -37,14 +35,14 @@
         />
 
     <EditText
-        android:id="@+id/Name"
+        android:id="@+id/bookAuthor_id"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
         android:layout_marginBottom="24dp"
         android:hint="Author"
         android:gravity="center"
-        android:layout_below="@+id/bookName"
+        android:layout_below="@+id/bookTitle_id"
         android:layout_marginLeft="50dp"
         android:layout_marginRight="50dp"
         android:layout_centerHorizontal="true"
@@ -59,14 +57,14 @@
         android:orientation="horizontal">
 
     <TextView
-        android:id="@+id/Course"
+        android:id="@+id/textView13"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
         android:layout_marginBottom="24dp"
         android:text="Course: "
         android:textSize="18sp"
-        android:layout_below="@+id/Name"
+        android:layout_below="@+id/bookAuthor_id"
         />
 
     <Spinner
@@ -75,14 +73,14 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
         android:layout_marginBottom="24dp"
-        android:layout_below="@+id/Name"
-        android:layout_toRightOf="@+id/Course"
-        android:layout_toEndOf="@+id/Course"
+        android:layout_below="@+id/bookAuthor_id"
+        android:layout_toRightOf="@+id/textView13"
+        android:layout_toEndOf="@+id/textView13"
         />
     </LinearLayout>
 
     <EditText
-        android:id="@+id/CCode"
+        android:id="@+id/bookCCode_id"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
@@ -102,7 +100,7 @@
         android:layout_marginTop="24dp"
         android:layout_marginBottom="24dp"
         android:text="Submit"
-        android:layout_below="@+id/CCode"
+        android:layout_below="@+id/bookCCode_id"
         android:layout_marginLeft="100dp"
         android:layout_marginRight="100dp"
         android:layout_centerHorizontal="true"

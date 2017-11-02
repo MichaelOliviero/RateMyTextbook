@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "695524763155",
+    "firebase_url": "https://ratemytextbook-184103.firebaseio.com",
+    "project_id": "ratemytextbook-184103",
+    "storage_bucket": "ratemytextbook-184103.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:695524763155:android:b0da8ddac300b06d",
+        "android_client_info": {
+          "package_name": "msn.ratemytextbook"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "695524763155-dplmqk2ffjq6vr0g9g6g6ck9rgrcp0i0.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "msn.ratemytextbook",
+            "certificate_hash": "2ebb3c7cba79f6fefc547b831fc651ac36c42487"
+          }
+        },
+        {
+          "client_id": "695524763155-rc3b87cv4eq71383kq9g1f695rbhnk5b.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD97DrNknnSoB1Zjn1mhGngPzYxAHsAb98"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "695524763155-rc3b87cv4eq71383kq9g1f695rbhnk5b.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,19 +1,14 @@
 package msn.ratemytextbook;
 
-import android.content.Context;
-import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
-import android.widget.Button;
-import android.widget.ListView;
 
 public class DisplayBook extends Fragment {
 
-    DatabaseHandler db = (DatabaseHandler) MainActivity.myBundle.get("database");
+    //DatabaseHandler db = (DatabaseHandler) MainActivity.myBundle.get("database");
 
     public DisplayBook() {
         // Required empty public constructor

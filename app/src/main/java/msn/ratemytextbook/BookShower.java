@@ -1,13 +1,11 @@
 package msn.ratemytextbook;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.RatingBar;
 import android.widget.TextView;
-
-import java.util.List;
 
 public class BookShower extends AppCompatActivity {
 
@@ -16,8 +14,8 @@ public class BookShower extends AppCompatActivity {
         super.onCreate( savedInstanceState );
         setContentView( R.layout.activity_book_shower );
 
-        DatabaseHandler db = (DatabaseHandler) MainActivity.myBundle.get( "database" );
-        List<Book> list = db.getAllBooks();
+        //DatabaseHandler db = (DatabaseHandler) MainActivity.myBundle.get( "database" );
+        //List<Book> list = db.getAllBooks();
         String Name;
         String Author;
         String Course;
