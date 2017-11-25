@@ -5,4 +5,12 @@
 
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="name">Name</string>
+
+    <string-array name="choices_arrays">
+        <item>Title</item>
+        <item>Author</item>
+        <item>Course</item>
+
+    </string-array>
+
 </resources>

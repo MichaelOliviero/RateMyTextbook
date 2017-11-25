@@ -38,8 +38,8 @@
         android:id="@+id/accPass"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        android:layout_marginBottom="24dp"
+        android:layout_marginTop="14dp"
+        android:layout_marginBottom="14dp"
         android:hint="Password"
         android:inputType="textWebPassword"
         android:gravity="center"
@@ -48,32 +48,32 @@
         android:layout_marginRight="50dp"
         android:layout_centerHorizontal="true"
         />
-
-    <Button
-        android:id="@+id/submit_btn3"
+    <TextView
+        android:id="@+id/submit_btn4"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        android:layout_marginBottom="24dp"
-        android:text="Log In"
+        android:layout_marginTop="4dp"
+        android:layout_marginBottom="4dp"
+        android:gravity="center"
+        android:text="Don't have an account yet?\nClick here to register!"
         android:layout_below="@+id/accPass"
         android:layout_marginLeft="100dp"
         android:layout_marginRight="100dp"
         android:layout_centerHorizontal="true"
         />
-
-    <TextView
-        android:id="@+id/submit_btn4"
+    <Button
+        android:id="@+id/submit_btn3"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="4dp"
         android:layout_marginBottom="24dp"
-        android:gravity="center"
-        android:text="Don't have an account yet?\nClick here to register!"
-        android:layout_below="@+id/submit_btn3"
+        android:text="Log In"
+        android:layout_below="@+id/submit_btn4"
         android:layout_marginLeft="100dp"
         android:layout_marginRight="100dp"
         android:layout_centerHorizontal="true"
         />
+
+
 
 </RelativeLayout>

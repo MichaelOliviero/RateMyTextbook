@@ -79,6 +79,14 @@ public class MainActivity extends AppCompatActivity {
                         item.setCheckable(true);
                         mDrawerLayout.closeDrawers();
                         break;
+                    case R.id.nav_search:
+                        fragmentTransaction = getSupportFragmentManager().beginTransaction();
+                        fragmentTransaction.replace(R.id.main_container,new SearchFragment());
+                        fragmentTransaction.commit();
+                        getSupportActionBar().setTitle("Search");
+                        item.setCheckable(true);
+                        mDrawerLayout.closeDrawers();
+                        break;
                 }
                 return true;
             }
