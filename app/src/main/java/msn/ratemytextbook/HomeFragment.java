@@ -1,10 +1,14 @@
 package msn.ratemytextbook;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ListView;
 
 import com.google.firebase.database.DataSnapshot;
@@ -57,24 +61,26 @@ public class HomeFragment extends Fragment {
             }
         });
 
-        /*lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-
+        lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                System.out.println("This is the Author: \n \n");
-                Book b = (Book) lvadapter.getItem(position);
-                System.out.println(b.getAuthor());
+                Fragment fragment = new AddCourseFragment();
+                FragmentTransaction fragmentTransaction;
+                fragmentTransaction = getFragmentManager().beginTransaction();
+                fragmentTransaction.replace(R.id.main_container, fragment);
+                fragmentTransaction.commit();
 
+                /*System.out.println( "This is the Author: \n \n" );
+                Book b = (Book) lv.getAdapter().getItem(position);
                 //((MainActivity) getActivity()).sendData(b);
-                Intent sendString = new Intent(getActivity(), BookShower.class);
-                sendString.putExtra("Name", b.getName());
-                sendString.putExtra("Author", b.getAuthor());
-                sendString.putExtra("Course", b.getCourse());
-                sendString.putExtra("CCode", b.getCCode());
-                sendString.putExtra("Rating", b.getRating());
-
-                startActivity(sendString);
-
-
+                Intent sendString = new Intent( getActivity(), BookShower.class );
+                sendString.putExtra( "Name", b.getBookTitle() );
+                sendString.putExtra( "Author", b.getBookAuthor() );
+                sendString.putExtra( "Course", b.getBookCourse() );
+                sendString.putExtra( "CCode", b.getBookCCode() );
+                sendString.putExtra( "Rating", b.getBookRating() );
+                startActivity( sendString );*/
+            }
+        });
 
                 /*final FragmentTransaction ft = getFragmentManager().beginTransaction();
                 ft.replace(R.id.drawerLayout, new DisplayBook(), "NewFragmentTag");

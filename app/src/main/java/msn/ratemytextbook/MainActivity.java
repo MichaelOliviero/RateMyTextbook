@@ -94,10 +94,4 @@ public class MainActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    public void sendData(Book b) {
-        //System.out.println("ASDASDASD" + "\n \n");
-        //Intent sendString = new Intent(MainActivity.this, BookShower.class);
-        //sendString.putExtra("a", "hello");
-
-    }
 }
