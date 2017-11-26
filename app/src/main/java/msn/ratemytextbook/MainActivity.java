@@ -79,11 +79,11 @@ public class MainActivity extends AppCompatActivity {
                         item.setCheckable(true);
                         mDrawerLayout.closeDrawers();
                         break;
-                    case R.id.nav_search:
+                    case R.id.nav_addCours:
                         fragmentTransaction = getSupportFragmentManager().beginTransaction();
-                        fragmentTransaction.replace(R.id.main_container,new SearchFragment());
+                        fragmentTransaction.replace(R.id.main_container, new MarketPlace());
                         fragmentTransaction.commit();
-                        getSupportActionBar().setTitle("Search");
+                        getSupportActionBar().setTitle("Add course");
                         item.setCheckable(true);
                         mDrawerLayout.closeDrawers();
                         break;
@@ -102,4 +102,10 @@ public class MainActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
+    public void sendData(Book b) {
+        //System.out.println("ASDASDASD" + "\n \n");
+        //Intent sendString = new Intent(MainActivity.this, BookShower.class);
+        //sendString.putExtra("a", "hello");
+
+    }
 }

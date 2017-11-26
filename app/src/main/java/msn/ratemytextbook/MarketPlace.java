@@ -1,4 +1,8 @@
+/**
+ * Created by Pallavi Singh on 2017-11-21.
+ */
 package msn.ratemytextbook;
+
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -8,7 +12,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
@@ -22,7 +25,7 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 import java.util.List;
 
-public class AddBookFragment extends Fragment{
+public class MarketPlace extends Fragment{
 
     FirebaseDatabase database = FirebaseDatabase.getInstance();
     DatabaseReference myRef = database.getReference("bookList");
@@ -30,14 +33,13 @@ public class AddBookFragment extends Fragment{
 
     public Button button;
 
-    public AddBookFragment() {
+    public MarketPlace() {
         // Required empty public constructor
     }
 
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        final View view = inflater.inflate(R.layout.fragment_marketplace, container, false);
+        final View view = inflater.inflate(R.layout.fragment_add_book, container, false);
 
         spinnerRef.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
@@ -138,3 +140,4 @@ public class AddBookFragment extends Fragment{
         return view;
     }
 }
+
