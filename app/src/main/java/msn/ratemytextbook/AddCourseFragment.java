@@ -2,13 +2,11 @@ package msn.ratemytextbook;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
-import android.widget.EditText;
-import android.widget.Toast;
+import android.widget.RatingBar;
+import android.widget.TextView;
 
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
@@ -18,8 +16,6 @@ public class AddCourseFragment extends Fragment{
     FirebaseDatabase database = FirebaseDatabase.getInstance();
     DatabaseReference myRef = database.getReference("courseList");
 
-    public Button button2;
-
     public AddCourseFragment() {
         // Required empty public constructor
     }
@@ -28,33 +24,29 @@ public class AddCourseFragment extends Fragment{
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         final View view = inflater.inflate(R.layout.fragment_add_course, container, false);
 
-        button2 = (Button) view.findViewById(R.id.submit_btn2);
-        button2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Course c = new Course();
+        String Name = null;
+        String Author = null;
+        String Course = null;
+        int CCode = 0;
+        int Rating = 0;
 
-                // Grab text from the text box
-                EditText inputCourse2 = (EditText) getView().findViewById(R.id.new_courseName);
+        TextView tvAuthor = (TextView)view.findViewById(R.id.Title);
+        tvAuthor.setText("Name: \t" + Name);
 
-                if(TextUtils.isEmpty(inputCourse2.getText().toString())) {
-                    inputCourse2.setError("Please input a course");
-                    return;
-                }else if (inputCourse2.getText().toString().length() > 4) {
-                    inputCourse2.setError("Please use the 4 letter abbreviation of your course");
-                    return;
-                }
+        TextView tvName = (TextView)view.findViewById(R.id.Author );
+        tvName.setText("Author: \t" + Author);
 
-                c.setCourseName(inputCourse2.getText().toString().toUpperCase());
+        TextView tvCourse = (TextView)view.findViewById(R.id.Course );
+        tvCourse.setText("Course: \t" + Course);
 
-                myRef.push().setValue(c);
-                inputCourse2.setText(null);
+        TextView tvCCode = (TextView)view.findViewById(R.id.CCode );
+        tvCCode.setText("Course Code: \t" + CCode);
 
-                Toast.makeText(getView().getContext(), "Course added!", Toast.LENGTH_SHORT).show();
-            }
-        });
+        RatingBar rate_bar = (RatingBar)view.findViewById(R.id.ratingBar);
+        rate_bar.setRating(Float.parseFloat("5.0"));
 
         return view;
     }
 
 }
+

@@ -79,6 +79,14 @@ public class MainActivity extends AppCompatActivity {
                         item.setCheckable(true);
                         mDrawerLayout.closeDrawers();
                         break;
+                    case R.id.nav_search:
+                        fragmentTransaction = getSupportFragmentManager().beginTransaction();
+                        fragmentTransaction.replace(R.id.main_container,new SearchFragment());
+                        fragmentTransaction.commit();
+                        getSupportActionBar().setTitle("Search");
+                        item.setCheckable(true);
+                        mDrawerLayout.closeDrawers();
+                        break;
                 }
                 return true;
             }
@@ -94,10 +102,4 @@ public class MainActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    public void sendData(Book b) {
-        //System.out.println("ASDASDASD" + "\n \n");
-        //Intent sendString = new Intent(MainActivity.this, BookShower.class);
-        //sendString.putExtra("a", "hello");
-
-    }
 }
