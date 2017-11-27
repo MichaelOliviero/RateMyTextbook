@@ -34,15 +34,20 @@ public class PassRecoveryFragment extends Fragment {
         button1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                String user = "";
 
                 // Grab text from the text box
                 EditText inputUser = (EditText) getView().findViewById(R.id.emailRecov);
-                String user = inputUser.getText().toString();
+                user = inputUser.getText().toString();
 
-                mAuth.sendPasswordResetEmail(user);
-                Toast.makeText(getView().getContext(), "Email sent to: " + user, Toast.LENGTH_SHORT).show();
-                inputUser.setText(null);
-                user = "";
+                if (!(user.equals(""))) {
+                    mAuth.sendPasswordResetEmail(user);
+                    Toast.makeText(getView().getContext(), "Email sent to: " + user, Toast.LENGTH_SHORT).show();
+                    inputUser.setText(null);
+                    user = "";
+                }else{
+                    Toast.makeText(getView().getContext(), "Try filling in the parameters before submitting.", Toast.LENGTH_SHORT).show();
+                }
             }
         });
 
