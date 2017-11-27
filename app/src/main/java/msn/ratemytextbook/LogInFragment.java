@@ -23,6 +23,7 @@ public class LogInFragment extends Fragment {
 
     public Button button3;
     public TextView button4;
+    public TextView button5;
     private FirebaseAuth mAuth;
     private ProgressDialog progressDialog;
 
@@ -70,6 +71,19 @@ public class LogInFragment extends Fragment {
                 ft.replace(R.id.main_container, new RegisterFragment());
                 ft.commit();
                 ((MainActivity) getActivity()).getSupportActionBar().setTitle("Register");
+            }
+        });
+
+        button5 = (TextView) view.findViewById(R.id.submit_btn7);
+        button5.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                // Grab text from the text box
+                FragmentTransaction ft = getActivity().getSupportFragmentManager().beginTransaction();
+                ft.replace(R.id.main_container, new PassRecoveryFragment());
+                ft.commit();
+                ((MainActivity) getActivity()).getSupportActionBar().setTitle("Password Reset");
             }
         });
 

@@ -1,2 +1,2 @@
 Week 1:
-Created the app and implemented the navigation bar.
+Learning how to use android studio. Gaining familiarity with features.
