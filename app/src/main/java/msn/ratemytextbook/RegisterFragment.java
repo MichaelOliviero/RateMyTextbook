@@ -45,7 +45,7 @@ public class RegisterFragment extends Fragment {
                 // Grab text from the text box
                 EditText inputUser = (EditText) getView().findViewById(R.id.newaccName);
                 EditText inputPass = (EditText) getView().findViewById(R.id.newaccPass);
-                String user = inputUser.getText().toString();
+                final String user = inputUser.getText().toString();
                 String pass = inputPass.getText().toString();
 
                 progressDialog.setMessage("Registering User...");
@@ -85,5 +85,4 @@ public class RegisterFragment extends Fragment {
 
         return view;
     }
-
 }
