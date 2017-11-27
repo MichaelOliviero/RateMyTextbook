@@ -3,10 +3,12 @@ package msn.ratemytextbook;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTransaction;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
@@ -139,6 +141,25 @@ public class SearchFragment extends Fragment {
                         System.out.println("Failed to read value: " + error.toException());
                     }
                 });
+            }
+        });
+
+        lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Fragment fragment = new AddCourseFragment();
+                FragmentTransaction fragmentTransaction;
+                fragmentTransaction = getFragmentManager().beginTransaction();
+                Book b = (Book) lv.getAdapter().getItem(position);
+                Bundle bookData = new Bundle();
+                bookData.putString("Title", b.getBookTitle());
+                bookData.putString("Author", b.getBookAuthor());
+                bookData.putString("Course", b.getBookCourse());
+                bookData.putInt("CCode", b.getBookCCode());
+                bookData.putFloat("Rating", b.getBookRating());
+                fragment.setArguments(bookData);
+                fragmentTransaction.replace(R.id.main_container, fragment);
+                fragmentTransaction.commit();
+
             }
         });
         return view;

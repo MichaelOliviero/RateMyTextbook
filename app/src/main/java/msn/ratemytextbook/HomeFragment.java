@@ -2,6 +2,7 @@ package msn.ratemytextbook;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Parcelable;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
@@ -66,19 +67,17 @@ public class HomeFragment extends Fragment {
                 Fragment fragment = new AddCourseFragment();
                 FragmentTransaction fragmentTransaction;
                 fragmentTransaction = getFragmentManager().beginTransaction();
+                Book b = (Book) lv.getAdapter().getItem(position);
+                Bundle bookData = new Bundle();
+                bookData.putString("Title", b.getBookTitle());
+                bookData.putString("Author", b.getBookAuthor());
+                bookData.putString("Course", b.getBookCourse());
+                bookData.putInt("CCode", b.getBookCCode());
+                bookData.putFloat("Rating", b.getBookRating());
+                fragment.setArguments(bookData);
                 fragmentTransaction.replace(R.id.main_container, fragment);
                 fragmentTransaction.commit();
 
-                /*System.out.println( "This is the Author: \n \n" );
-                Book b = (Book) lv.getAdapter().getItem(position);
-                //((MainActivity) getActivity()).sendData(b);
-                Intent sendString = new Intent( getActivity(), BookShower.class );
-                sendString.putExtra( "Name", b.getBookTitle() );
-                sendString.putExtra( "Author", b.getBookAuthor() );
-                sendString.putExtra( "Course", b.getBookCourse() );
-                sendString.putExtra( "CCode", b.getBookCCode() );
-                sendString.putExtra( "Rating", b.getBookRating() );
-                startActivity( sendString );*/
             }
         });
 
