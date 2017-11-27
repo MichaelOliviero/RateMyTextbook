@@ -21,22 +21,22 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 import java.util.List;
 
-public class AddBookFragment extends Fragment{
+
+public class AddToMarket extends Fragment {
 
     FirebaseDatabase database = FirebaseDatabase.getInstance();
-    DatabaseReference myRef = database.getInstance().getReference("bookList");
+    DatabaseReference myRef = database.getInstance().getReference("marketListMP");
     DatabaseReference spinnerRef = database.getReference("courseList");
 
     public Button button;
 
-    public AddBookFragment() {
+    public AddToMarket() {
         // Required empty public constructor
     }
 
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        final View view = inflater.inflate(R.layout.fragment_add_book, container, false);
+        final View view = inflater.inflate(R.layout.fragment_add_to_market, container, false);
 
         spinnerRef.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
@@ -63,37 +63,39 @@ public class AddBookFragment extends Fragment{
                 System.out.println("Failed to read value: " + error.toException());
             }
         });
-        button = (Button) view.findViewById(R.id.submit_btn);
+        button = (Button) view.findViewById(R.id.submit_btn2);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Book inputBook = new Book();
+                MarketBook inputBook = new MarketBook();
                 int CCode;
 
                 //grab text from the text box
-                EditText inputName = (EditText) getView().findViewById(R.id.bookTitle_id);
+                EditText inputName = (EditText) getView().findViewById(R.id.bookTitle_id2);
                 EditText inputAuthor = (EditText) getView().findViewById(R.id.bookAuthor_id2);
                 Spinner inputCourse = (Spinner) getView().findViewById(R.id.Course_spn);
                 EditText inputCCode = (EditText) getView().findViewById(R.id.bookCCode_id2);
-
+                EditText inputEmail = (EditText) getView().findViewById(R.id.email_id2);
+                EditText inputNumber = (EditText) getView().findViewById(R.id.phoneNumber_id);
+                EditText inputPrice = (EditText) getView().findViewById(R.id.book_price);
                 if (TextUtils.isEmpty(inputName.getText().toString())) {
                     inputName.setError("Please input a title");
                     return;
-                }else if (inputName.getText().toString().length() > 25) {
+                } else if (inputName.getText().toString().length() > 25) {
                     inputName.setError("The max character count is: 25");
                     return;
                 }
                 if (TextUtils.isEmpty(inputAuthor.getText().toString())) {
                     inputAuthor.setError("Please input an author's name");
                     return;
-                }else if (inputAuthor.getText().toString().length() > 25) {
+                } else if (inputAuthor.getText().toString().length() > 25) {
                     inputAuthor.setError("The max character count is: 25");
                     return;
                 }
                 if (TextUtils.isEmpty(inputCCode.getText().toString())) {
                     inputCCode.setError("Please input a course code");
                     return;
-                }else if (inputCCode.getText().toString().length() > 4) {
+                } else if (inputCCode.getText().toString().length() > 4) {
                     inputCCode.setError("Please input a valid course code");
                     return;
                 }
@@ -103,20 +105,35 @@ public class AddBookFragment extends Fragment{
                     inputCCode.setError("Please input a valid course code");
                     return;
                 }
-
-                //set the books variables
+                if (TextUtils.isEmpty(inputEmail.getText().toString())) {
+                    inputName.setError("Please input an email for contact purposes");
+                    return;
+                } else if (inputEmail.getText().toString().length() > 25) {
+                    inputName.setError("The max character count is: 25");
+                    return;
+                }
+                if (TextUtils.isEmpty(inputNumber.getText().toString())) {
+                    inputName.setError("Please input your phone number");
+                    return;
+                } else if (inputNumber.getText().toString().length() > 25) {
+                    inputName.setError("The max character count is: 25");
+                    return;
+                }
+                CCode = Integer.parseInt(inputCCode.getText().toString());
+                //set the book for sale variables
                 inputBook.setBookTitle(inputName.getText().toString());
                 inputBook.setBookAuthor(inputAuthor.getText().toString());
                 inputBook.setBookCourse(inputCourse.getSelectedItem().toString());
-                inputBook.setBookCCode(CCode);
-                // Rating is defaulted to 5 stars
-
+                inputBook.setBookCCodeCourse(CCode);
+                inputBook.setSellerEmail(inputEmail.getText().toString());
+                inputBook.setSellerNumber(inputNumber.getText().toString());
+                inputBook.setPrice(inputPrice.getText().toString());
 
                 // Read from the database
                 myRef.addValueEventListener(new ValueEventListener() {
                     @Override
                     public void onDataChange(DataSnapshot dataSnapshot) {
-                        BookList value = dataSnapshot.getValue(BookList.class);
+                        MarketBookList value = dataSnapshot.getValue(MarketBookList.class);
                     }
 
                     @Override
@@ -129,6 +146,9 @@ public class AddBookFragment extends Fragment{
                 inputName.setText(null);
                 inputAuthor.setText(null);
                 inputCCode.setText(null);
+                inputEmail.setText(null);
+                inputNumber.setText(null);
+                inputPrice.setText(null);
 
                 Toast.makeText(getView().getContext(), "Book added!", Toast.LENGTH_SHORT).show();
             }
