@@ -10,6 +10,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 
+
 public class MainActivity extends AppCompatActivity {
 
     private DrawerLayout mDrawerLayout;
@@ -79,11 +80,27 @@ public class MainActivity extends AppCompatActivity {
                         item.setCheckable(true);
                         mDrawerLayout.closeDrawers();
                         break;
-                    case R.id.nav_addCours:
+                    case R.id.nav_search:
+                        fragmentTransaction = getSupportFragmentManager().beginTransaction();
+                        fragmentTransaction.replace(R.id.main_container,new SearchFragment());
+                        fragmentTransaction.commit();
+                        getSupportActionBar().setTitle("Search");
+                        item.setCheckable(true);
+                        mDrawerLayout.closeDrawers();
+                        break;
+                    case R.id.nav_MarketPlace:
                         fragmentTransaction = getSupportFragmentManager().beginTransaction();
                         fragmentTransaction.replace(R.id.main_container, new MarketPlace());
                         fragmentTransaction.commit();
-                        getSupportActionBar().setTitle("Add course");
+                        getSupportActionBar().setTitle("Marketplace");
+                        item.setCheckable(true);
+                        mDrawerLayout.closeDrawers();
+                        break;
+                    case R.id.nav_addToMarket:
+                        fragmentTransaction = getSupportFragmentManager().beginTransaction();
+                        fragmentTransaction.replace(R.id.main_container, new AddToMarket());
+                        fragmentTransaction.commit();
+                        getSupportActionBar().setTitle("Add To Marketplace");
                         item.setCheckable(true);
                         mDrawerLayout.closeDrawers();
                         break;
@@ -106,6 +123,7 @@ public class MainActivity extends AppCompatActivity {
         //System.out.println("ASDASDASD" + "\n \n");
         //Intent sendString = new Intent(MainActivity.this, BookShower.class);
         //sendString.putExtra("a", "hello");
-
     }
+
+
 }

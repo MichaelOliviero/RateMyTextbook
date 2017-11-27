@@ -18,6 +18,9 @@
         android:title="View Book" />
 
     <item
+        android:id="@+id/nav_addToMarket"
+        android:title="Add to marketplace" />
+    <item
         android:id="@+id/nav_MarketPlace"
         android:icon="@mipmap/ic_add_circle_black_24dp"
         android:title="MarketPlace" />
