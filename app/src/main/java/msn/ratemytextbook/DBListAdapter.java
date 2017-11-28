@@ -47,9 +47,9 @@ public class DBListAdapter extends ArrayAdapter {
             LayoutInflater layoutInflater = (LayoutInflater) this.getContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
             mview = layoutInflater.inflate(R.layout.row_book, parent, false);
             layoutHandler = new LayoutHandler();
-            layoutHandler.title = (TextView) mview.findViewById(R.id.book_title);
-            layoutHandler.author = (TextView) mview.findViewById(R.id.book_author);
-            layoutHandler.course = (TextView) mview.findViewById(R.id.book_course);
+            layoutHandler.title = (TextView) mview.findViewById(R.id.book_title_m);
+            layoutHandler.author = (TextView) mview.findViewById(R.id.book_author_m);
+            layoutHandler.course = (TextView) mview.findViewById(R.id.book_course_m);
             layoutHandler.course_code = (TextView) mview.findViewById(R.id.book_course_code);
             layoutHandler.rating = (RatingBar) mview.findViewById(R.id.book_rating);
             mview.setTag(layoutHandler);

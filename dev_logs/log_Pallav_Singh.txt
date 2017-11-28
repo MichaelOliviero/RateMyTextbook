@@ -1,0 +1,38 @@
+Dev logs- Pallavi Singh
+
+
+Week 1:
+-discussed app ideas and finalized our app
+-worked on D1
+
+Week 2/week 3:
+- Learnt android basics and android architecture
+
+week 4: oct 1st
+-sketched app layout
+-split up responsibilities between all the members
+
+week 5:
+-started working on server and basic app functions
+
+week 6:
+-tried to set-up static server that communicates with the app and a sql database.
+-Connected the server to the database, trying to figure out how to connect the server to the app
+
+week 7:
+- prepared for app demonstration in class
+
+week 8:
+- Started working on the marketplace implementation
+- Mico setup firebase real-time database
+
+week 9:
+- Added AddToMarket fragment to let users post bokms for sale in the marketplace
+- Wrote D3 report
+
+week 10:
+- Connected the marketplace components to the database
+
+week11/week12:
+- Added adapter class to dislay the marketplace data
+- Finished marketplace implementation for the final app demo

@@ -48,8 +48,6 @@ public class MarketPlace extends Fragment {
 
                 MarketBookList bl = new MarketBookList();
 
-                //MarketBook k= new MarketBook("test", "pallavi","COMP", 1234, "pallavi@gmail.com", "6135678765", "40");
-                //bl.addBook(k);
                 for (DataSnapshot areaSnapshot : dataSnapshot.getChildren()) {
                     MarketBook b = areaSnapshot.getValue(MarketBook.class);
                     bl.addBook(b);
