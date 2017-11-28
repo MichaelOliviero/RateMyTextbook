@@ -11,6 +11,7 @@ import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
@@ -29,9 +30,6 @@ public class MarketPlace extends Fragment {
 
     FirebaseDatabase database = FirebaseDatabase.getInstance();
     DatabaseReference myRef = database.getReference("marketListMP");
-    DatabaseReference spinnerRef = database.getReference("courseList");
-
-    public Button button;
 
     public MarketPlace() {
         // Required empty public constructor
@@ -50,6 +48,8 @@ public class MarketPlace extends Fragment {
 
                 MarketBookList bl = new MarketBookList();
 
+                //MarketBook k= new MarketBook("test", "pallavi","COMP", 1234, "pallavi@gmail.com", "6135678765", "40");
+                //bl.addBook(k);
                 for (DataSnapshot areaSnapshot : dataSnapshot.getChildren()) {
                     MarketBook b = areaSnapshot.getValue(MarketBook.class);
                     bl.addBook(b);
@@ -58,8 +58,9 @@ public class MarketPlace extends Fragment {
                 if (getActivity() != null) {
                     final marketAdapter lvadapter = new marketAdapter(
                             getActivity(),
-                            android.R.layout.simple_list_item_1,
-                            bl.getBookArrayList());
+                            android.R.layout.simple_list_item_2,
+                            bl.getBookArrayList()
+                    );
                     lv.setAdapter(lvadapter);
                 }
             }
@@ -70,6 +71,7 @@ public class MarketPlace extends Fragment {
                 System.out.println("Failed to read value: " + error.toException());
             }
         });
+
         return view;
     }
 }

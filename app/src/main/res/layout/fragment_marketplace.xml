@@ -39,10 +39,11 @@
             android:layout_height="match_parent"
             android:layout_weight="0.4"
             android:background="@android:color/holo_blue_light"
-            android:orientation="horizontal">
+            android:orientation="vertical">
 
             <ListView
                 android:id="@+id/listView1"
+                style="@android:style/Widget.DeviceDefault.Light.ListView"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:divider="#b000"
