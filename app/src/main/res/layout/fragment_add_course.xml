@@ -70,7 +70,7 @@
             android:layout_height="wrap_content"
             android:layout_marginEnd="84dp"
             android:layout_marginStart="84dp"
-            android:layout_marginTop="100dp"
+            android:layout_marginTop="125dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@+id/CCode" />
@@ -81,11 +81,24 @@
             android:layout_height="wrap_content"
             android:layout_marginEnd="84dp"
             android:layout_marginStart="84dp"
-            android:layout_marginTop="40dp"
-            android:text="Button"
+            android:layout_marginTop="30dp"
+            android:text="Submit"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/ratingBar" />
+
+        <TextView
+            android:id="@+id/Rating"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="84dp"
+            android:layout_marginStart="84dp"
+            android:layout_marginTop="75dp"
+            android:text="TextView"
+            android:textSize="22sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/CCode" />
 
     </android.support.constraint.ConstraintLayout>
 </RelativeLayout>

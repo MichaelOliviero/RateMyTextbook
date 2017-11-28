@@ -2,6 +2,7 @@ package msn.ratemytextbook;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -52,7 +53,9 @@ public class AddCourseFragment extends Fragment{
         TextView tvCourse = (TextView)view.findViewById(R.id.Course );
         tvCourse.setText("Course: \t" + Course);
         TextView tvCCode = (TextView)view.findViewById(R.id.CCode );
-        tvCCode.setText("Course Code: \t" + Rating);
+        tvCCode.setText("Course Code: \t" + CCode);
+        TextView tvRating = (TextView)view.findViewById(R.id.Rating );
+        tvRating.setText("Rating: \t" + Rating);
         final RatingBar rate_bar = (RatingBar)view.findViewById(R.id.ratingBar);
         rate_bar.setRating(Rating);
 
@@ -61,38 +64,32 @@ public class AddCourseFragment extends Fragment{
         button.setOnClickListener( new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                myRef.addValueEventListener(new ValueEventListener() {
+                final float userRating = rate_bar.getRating();
+                myRef.orderByChild("bookTitle").equalTo(finalTitle).addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
                     public void onDataChange(DataSnapshot dataSnapshot) {
-                        float finalRating = rate_bar.getRating();
                         for (DataSnapshot areaSnapshot: dataSnapshot.getChildren()) {
-                            Book b = areaSnapshot.getValue( Book.class );
-                                if (b.getBookTitle().equals( finalTitle )) {
+                            final Book b = areaSnapshot.getValue(Book.class);
+                            if(b.getBookTitle().equals( finalTitle )) {
+                                float totalRating = b.getTotalRating();
+                                float numRating = b.getnumRating();
+                                float bookRating = b.getBookRating();
+                                System.out.println( "totalRating " + totalRating );
+                                System.out.println( "numRating " + numRating );
+                                System.out.println( "bookRating \n\n\n " + bookRating );
 
-                                    myRef.orderByChild("bookTitle").equalTo(b.getBookTitle()).addValueEventListener(new ValueEventListener() {
-                                        @Override
-                                        public void onDataChange(DataSnapshot dataSnapshot) {
-                                            for (DataSnapshot areaSnapshot: dataSnapshot.getChildren()) {
-                                                areaSnapshot.getRef().child("bookRating").setValue(3.0);
-                                            }
-                                        }
+                                totalRating += userRating;
+                                numRating++;
+                                bookRating = (float) Math.rint( totalRating / numRating );
 
-                                        @Override
-                                        public void onCancelled(DatabaseError error) {
-                                            // Failed to read value
-                                            System.out.println( "Failed to read value: " + error.toException() );
-                                        }
-                                    });
-
-
-                                    System.out.println("before set, user Rating: " + finalRating);
-                                    areaSnapshot.getValue( Book.class ).setBookRating( finalRating );
-                                    System.out.println( "\n \n \nBOOKS RATING IS:" + areaSnapshot.getValue( Book.class ).getBookRating() );
-                                    break;
-                                }
+                                areaSnapshot.getRef().child( "totalRating" ).setValue( totalRating );
+                                areaSnapshot.getRef().child( "numRating" ).setValue( numRating );
+                                areaSnapshot.getRef().child( "bookRating" ).setValue( bookRating );
+                                break;
                             }
                         }
-
+                        return;
+                    }
                     @Override
                     public void onCancelled(DatabaseError error) {
                         // Failed to read value
@@ -100,6 +97,11 @@ public class AddCourseFragment extends Fragment{
                     }
                 });
 
+                Fragment fragment = new HomeFragment();
+                FragmentTransaction fragmentTransaction;
+                fragmentTransaction = getFragmentManager().beginTransaction();
+                fragmentTransaction.replace(R.id.main_container, fragment);
+                fragmentTransaction.commit();
             }
         });
         return view;
