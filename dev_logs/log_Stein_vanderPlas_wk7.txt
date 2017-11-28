@@ -1,0 +1,3 @@
+Dev log week 7:
+	This week Mico updated our app to use google's firebase real-time server. I have never used firebase before, or any real-time server, 
+so I took most of the week to get acquainted with the new software we we're going to be introducing into our app.

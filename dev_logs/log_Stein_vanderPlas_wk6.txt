@@ -1,0 +1,4 @@
+Dev log week 6:
+	Created the functionality to show a book when clicked on the main menu. I Ran into trouble with viewing the books information after it has been stored.
+Passing information between fragmments was giving me trouble becuase some of the information wasn't getting stored into the bundle correctly and inturn causing 
+errors.

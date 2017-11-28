@@ -1,0 +1,3 @@
+Dev log week 5:
+	This week we planned the way our app is going to flow moving forward as well lot of planning on how we are going to structure our app. I researched the differences in
+the utilities of activities versus fragments and how each one should be used.
