@@ -1,0 +1,2 @@
+Gave up on tryin to commit to github. Finshed/polished up the search fragment. made sign in xml more user friendly.
+Sent all my work to Stein who offered to commit it for me.

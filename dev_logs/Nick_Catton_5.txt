@@ -1,0 +1,1 @@
+Determined the path of the user through our app with group (login -> home-> ect). Started working on a search fragment for the app.
