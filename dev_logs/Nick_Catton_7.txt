@@ -1,0 +1,1 @@
+Tryed to learn how to commit to git. Ran into trouble, led to re-install of android studios. I do not like git.

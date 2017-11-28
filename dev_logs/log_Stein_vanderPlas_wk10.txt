@@ -1,0 +1,2 @@
+Dev log week 10:
+	I worked on some aesthetics and cleaning up the layout of our fragments.

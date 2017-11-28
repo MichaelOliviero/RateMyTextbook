@@ -1,0 +1,3 @@
+Dev log week 4:
+	Created the add Book feature which will add a book to our application and store it locally. We are contemplating how we want to be storing our data,
+ therefore at the moment the class is storing locally but it may change in the future to a server based storage.

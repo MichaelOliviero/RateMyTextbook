@@ -109,6 +109,8 @@ public class AddBookFragment extends Fragment{
                 inputBook.setBookAuthor(inputAuthor.getText().toString());
                 inputBook.setBookCourse(inputCourse.getSelectedItem().toString());
                 inputBook.setBookCCode(CCode);
+                inputBook.numRating = 0;
+                inputBook.totalRating = 0;
                 // Rating is defaulted to 5 stars
 
 

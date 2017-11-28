@@ -1,0 +1,2 @@
+Dev log week 2:
+	Started on the code foundation. Created with Mico the main classes used to create the app such as the Book and Course class. 

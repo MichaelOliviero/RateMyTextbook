@@ -1,0 +1,3 @@
+Dev log week 3:
+	Continued working on the code foundation while also brainstorming possible design features and our app's functionality. 
+We focused a lot on the user's paths through the app such as the seach and viewing so that they have the most easy to understand and efficient path.

@@ -1,0 +1,2 @@
+Dev log week 9:
+	I worked on the our design structure and organizing the code for efficiency.

@@ -1,0 +1,3 @@
+Dev log week 11:
+	This week I worked on the rating system. There we're problems with acquiring the variables in firebase and changing the values. 
+This is because I am not familiar with firebase and it was difficult to understand the process.

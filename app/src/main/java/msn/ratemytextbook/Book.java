@@ -1,5 +1,7 @@
 package msn.ratemytextbook;
 
+import com.google.firebase.database.ValueEventListener;
+
 public class Book {
 
     public String bookTitle;
@@ -33,16 +35,16 @@ public class Book {
     public String getBookCourse() { return bookCourse; }
     public int getBookCCode() { return bookCCode; }
     public float getBookRating() { return bookRating; }
+    public float getTotalRating() { return totalRating; }
+    public float getnumRating() { return numRating; }
 
     public void setBookTitle(String bookTitle) { this.bookTitle = bookTitle; }
     public void setBookAuthor(String bookAuthor) { this.bookAuthor = bookAuthor; }
     public void setBookCourse(String bookCourse) { this.bookCourse = bookCourse; }
     public void setBookCCode(int bookCCode) { this.bookCCode = bookCCode; }
     public void setBookRating(float userRating){
-        System.out.println("My name is:       " + getBookTitle());
         this.totalRating += userRating;
         this.numRating++;
         this.bookRating = this.totalRating/(this.numRating);
-        System.out.println("MY Rating is:" + this.bookRating + "\n I have: " + this.numRating + " ratings. \n");
     }
 }

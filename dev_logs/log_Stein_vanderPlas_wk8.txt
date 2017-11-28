@@ -1,0 +1,2 @@
+Dev log week 8:
+	I worked on fixing the sections I had previously worked on which had broken since the change to firebase.
