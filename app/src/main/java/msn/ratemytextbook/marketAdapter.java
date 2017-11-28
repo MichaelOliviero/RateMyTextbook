@@ -5,13 +5,11 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
-import android.widget.RatingBar;
 import android.widget.TextView;
 
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
-import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -49,15 +47,15 @@ public class marketAdapter extends ArrayAdapter {
         LayoutHandler layoutHandler;
         if (mview == null) {
             LayoutInflater layoutInflater = (LayoutInflater) this.getContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-            mview = layoutInflater.inflate(R.layout.row_book, parent, false);
+            mview = layoutInflater.inflate(R.layout.row_market, parent, false);
             layoutHandler = new LayoutHandler();
-            layoutHandler.title = (TextView) mview.findViewById(R.id.bookTitle_id2);
-            layoutHandler.author = (TextView) mview.findViewById(R.id.bookAuthor_id2);
-            layoutHandler.course = (TextView) mview.findViewById(R.id.course_id2);
-            layoutHandler.course_code = (TextView) mview.findViewById(R.id.bookCCode_id2);
-            layoutHandler.email = (TextView) mview.findViewById(R.id.email_id2);
-            layoutHandler.number = (TextView) mview.findViewById(R.id.phoneNumber_id);
-            layoutHandler.price = (TextView) mview.findViewById(R.id.book_price);
+            layoutHandler.title = (TextView) mview.findViewById(R.id.book_title_m);
+            layoutHandler.author = (TextView) mview.findViewById(R.id.book_author_m);
+            layoutHandler.course = (TextView) mview.findViewById(R.id.book_course_code_m);
+            layoutHandler.course_code = (TextView) mview.findViewById(R.id.book_course_code_m);
+            layoutHandler.email = (TextView) mview.findViewById(R.id.seller_email_m);
+            layoutHandler.number = (TextView) mview.findViewById(R.id.seller_number_m);
+            layoutHandler.price = (TextView) mview.findViewById(R.id.book_price_m);
             mview.setTag(layoutHandler);
         }else {
             layoutHandler = (LayoutHandler) mview.getTag();

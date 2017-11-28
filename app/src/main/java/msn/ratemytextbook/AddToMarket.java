@@ -77,7 +77,7 @@ public class AddToMarket extends Fragment {
                 EditText inputCCode = (EditText) getView().findViewById(R.id.bookCCode_id2);
                 EditText inputEmail = (EditText) getView().findViewById(R.id.email_id2);
                 EditText inputNumber = (EditText) getView().findViewById(R.id.phoneNumber_id);
-                EditText inputPrice = (EditText) getView().findViewById(R.id.book_price);
+                EditText inputPrice = (EditText) getView().findViewById(R.id.book_price_m);
                 if (TextUtils.isEmpty(inputName.getText().toString())) {
                     inputName.setError("Please input a title");
                     return;

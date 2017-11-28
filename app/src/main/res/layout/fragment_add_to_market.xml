@@ -126,7 +126,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/book_price" />
+        app:layout_constraintTop_toBottomOf="@+id/book_price_m" />
 
     <EditText
         android:id="@+id/email_id2"
@@ -153,13 +153,13 @@
         android:ems="10"
         android:hint="Phone number "
         android:inputType="phone"
-        app:layout_constraintBottom_toTopOf="@+id/book_price"
+        app:layout_constraintBottom_toTopOf="@+id/book_price_m"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/email_id2" />
 
     <EditText
-        android:id="@+id/book_price"
+        android:id="@+id/book_price_m"
         android:layout_width="174dp"
         android:layout_height="42dp"
         android:layout_marginBottom="11dp"
